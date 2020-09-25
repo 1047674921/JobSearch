@@ -1,0 +1,13 @@
+/* pages/index/list.wxss */
+image{
+  width: 100px;
+  height: 100px;
+}
+.text{
+  float: right;
+  margin-top: 20px;
+}
+.list{
+  background-color: azure;
+  margin-top: 20px;
+}
