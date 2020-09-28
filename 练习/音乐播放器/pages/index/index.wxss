@@ -1,0 +1,19 @@
+/**index.wxss**/
+page{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.tab{
+  display: flex;
+}
+.tab-item{
+  flex: 1;
+  text-align: center;
+  line-height: 72rpx;
+  border-bottom: 6rpx solid #eee;
+}
+.tab-item.active{
+  color:red;
+  border-bottom-color:red;
+}

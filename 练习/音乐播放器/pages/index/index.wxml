@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="tab">
+  <view class="tab-item {{item==0?'active':''}}" bindtap="changeItem" data-item="0">音乐推荐</view>
+  <view class="tab-item {{item==1?'active':''}}" bindtap="changeItem" data-item="1">播放器</view>
+  <view class="tab-item {{item==2?'active':''}}" bindtap="changeItem" data-item="2">播放列表</view>
+</view>
+<view class="content">
+  <swiper current="{{item}}" bindtap="changeTab">
+    <swiper-item>
+      <swiper indicator-dots="true" autoplay="true">
+        <swiper-item>
+          <image src="../image/timg.jpg"style="width:100%;"></image>
+        </swiper-item>
+        <swiper-item>
+          <image src="../image/timg.jpg"style="width:100%"></image>
+        </swiper-item>
+        <swiper-item>
+          <image src="../image/timg.jpg"style="width:100%"></image>
+        </swiper-item>
+      </swiper>
+    </swiper-item>
+    <swiper-item>2</swiper-item>
+    <swiper-item>3</swiper-item>
+  </swiper>
+</view>
+<view class="player"></view>
