@@ -3,10 +3,12 @@
     "pages/index/index"
   ],
   "window":{
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "音乐播放器",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#0094ff",
+    "enablePullDownRefresh": true
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

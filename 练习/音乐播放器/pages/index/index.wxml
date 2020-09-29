@@ -5,22 +5,61 @@
   <view class="tab-item {{item==2?'active':''}}" bindtap="changeItem" data-item="2">播放列表</view>
 </view>
 <view class="content">
-  <swiper current="{{item}}" bindtap="changeTab">
-    <swiper-item>
+  <swiper current="{{item}}" bindtap="changeTab" class="sw">
+  <swiper-item >
+    <scroll-view scroll-y class="content-info" > 
       <swiper indicator-dots="true" autoplay="true">
-        <swiper-item>
-          <image src="../image/timg.jpg"style="width:100%;"></image>
-        </swiper-item>
-        <swiper-item>
-          <image src="../image/timg.jpg"style="width:100%"></image>
-        </swiper-item>
-        <swiper-item>
-          <image src="../image/timg.jpg"style="width:100%"></image>
-        </swiper-item>
-      </swiper>
+          <swiper-item>
+            <image src="../image/timg.jpg"style="width:100%;"></image>
+          </swiper-item>
+          <swiper-item>
+            <image src="../image/timg.jpg"style="width:100%"></image>
+          </swiper-item>
+          <swiper-item>
+            <image src="../image/timg.jpg"style="width:100%"></image>
+          </swiper-item>
+        </swiper>
+        <view class="content-info-portal">
+          <view>
+            <image src="../image/04.png"></image>
+            <text>私人FM</text>
+          </view>
+          <view>
+            <image src="../image/05.png"></image>
+            <text>每日歌曲推荐</text>
+          </view>
+          <view>
+            <image src="../image/06.png"></image>
+            <text>云音乐新歌榜</text>
+          </view>
+        </view>
+        <view class="content-info-list">
+          <view class="list-title">推荐歌曲</view>
+          <view class="list-inner">
+              <view class="list-item" wx:for="{{list}}">
+                    <image src="{{item.musicimage}}" />
+                    <view>{{item.name}}</view> 
+            </view>
+          </view>
+      </view>
+      </scroll-view>
     </swiper-item>
-    <swiper-item>2</swiper-item>
-    <swiper-item>3</swiper-item>
+      <swiper-item>2</swiper-item>
+      <swiper-item>
+        <scroll-view class="content-playlist" scroll-y>
+          <view class="playlist-item" wx:for="{{list}}" >
+            <image class="playlist-cover" src="{{item.musicimage}}" />
+            <view class="playlist-info">
+              <view class="playlist-info-title">{{item.name}}</view>
+              <view class="playlist-info-singer">{{item.singer}}</view>
+            </view>
+            <!--<view class="playlist-controls">
+              <text>正在播放</text>
+            </view>-->
+          </view>
+        </scroll-view>
+      </swiper-item>
   </swiper>
+
 </view>
 <view class="player"></view>
