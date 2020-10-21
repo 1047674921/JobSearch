@@ -36,7 +36,7 @@
         <view class="content-info-list">
           <view class="list-title">推荐歌曲</view>
           <view class="list-inner">
-              <view class="list-item" wx:for="{{list}}">
+              <view class="list-item" wx:for="{{playlist}}">
                     <image src="{{item.musicimage}}" />
                     <view>{{item.name}}</view> 
             </view>
@@ -44,22 +44,54 @@
       </view>
       </scroll-view>
     </swiper-item>
-      <swiper-item>2</swiper-item>
+      <swiper-item>
+        <view class="content-play">
+  <!-- 显示音乐信息 -->
+  <view class="content-play-info">
+    <text>{{play.name}}</text>
+    <view>—— {{play.singer}} ——</view>
+  </view>
+  <!-- 显示专辑封面 -->
+  <view class="content-play-cover">
+    <image src="{{play.musicimage}}" style="animation-play-state:{{state}}" />
+  </view>
+  <!-- 显示播放进度和时间 -->
+  <view class="content-play-progress">
+    <text>{{play.currentTime}}</text>
+    <view>
+      <slider bindchange="sliderChange" activeColor="#d33a31" block-size="12" backgroundColor="#dadada" value="{{play.percent}}" />
+    </view>
+    <text>{{play.duration}}</text>
+  </view>
+</view>
+      </swiper-item>
       <swiper-item>
         <scroll-view class="content-playlist" scroll-y>
-          <view class="playlist-item" wx:for="{{list}}" >
+          <view class="playlist-item" wx:for="{{playlist}}" >
             <image class="playlist-cover" src="{{item.musicimage}}" />
             <view class="playlist-info">
               <view class="playlist-info-title">{{item.name}}</view>
               <view class="playlist-info-singer">{{item.singer}}</view>
             </view>
-            <!--<view class="playlist-controls">
+            <view wx:if="{{index==playIndex}}" class="playlist-controls">
               <text>正在播放</text>
-            </view>-->
+            </view>
           </view>
         </scroll-view>
       </swiper-item>
   </swiper>
 
 </view>
-<view class="player"></view>
+<view class="player">
+  <image class="player-cover" src="{{play.musicimage}}" />
+  <view class="player-info">
+    <view class="player-info-title">{{play.name}}</view>
+    <view class="player-info-singer">{{play.singer}}</view>
+  </view>
+  <view class="player-controls">
+    <image src="../image/01.png" bindtap="changePage" data-page="2" />
+    <image wx:if="{{state=='paused'}}" src="../image/02.png" bindtap="play" />
+    <image wx:else src="../image/02stop.png" bindtap="pause" />
+    <image src="../image/03.png" bindtap="next" />
+  </view>
+</view>
